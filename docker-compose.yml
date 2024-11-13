@@ -1,4 +1,8 @@
-version: "3.7"
+networks:
+    #samm-network:
+    #    driver: bridge
+    frontend:
+        external: true
 
 services:
     nextjs:
@@ -7,10 +11,10 @@ services:
             dockerfile: docker/Dockerfile
         restart: unless-stopped
         networks:
-            - samm-network
+        #    - samm-network
+            - frontend
         ports:
-            - "127.0.0.1:3000:3000"
+            - "3001:3000"
 
-networks:
-    samm-network:
-        driver: bridge
+
+
